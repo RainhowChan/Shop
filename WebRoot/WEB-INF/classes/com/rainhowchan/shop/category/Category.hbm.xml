@@ -8,5 +8,9 @@
     			<generator class="native"/>
     		</id>
     		<property name="cname" column="cname" type="string"/>
+    		<set name="categorySeconds" order-by="csid">
+    			<key column="cid"/>
+    			<one-to-many class="com.rainhowchan.shop.categorysecond.CategorySecond"/>
+    		</set>
     	</class>
     </hibernate-mapping>

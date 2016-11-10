@@ -2,6 +2,8 @@ package com.rainhowchan.shop.product;
 
 import java.util.Date;
 
+import com.rainhowchan.shop.categorysecond.CategorySecond;
+
 public class Product {
 	private Integer pid;
 	private String pname;
@@ -10,6 +12,7 @@ public class Product {
 	private String pdesc;
 	private Integer is_hot;
 	private Date pdate;
+	private CategorySecond categorySecond;
 	public Integer getPid() {
 		return pid;
 	}
@@ -51,6 +54,12 @@ public class Product {
 	}
 	public void setPdate(Date pdate) {
 		this.pdate = pdate;
+	}
+	public CategorySecond getCategorySecond() {
+		return categorySecond;
+	}
+	public void setCategorySecond(CategorySecond categorySecond) {
+		this.categorySecond = categorySecond;
 	}
 	@Override
 	public String toString() {

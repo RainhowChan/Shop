@@ -18,8 +18,10 @@
 			<result name="loginInput">/WEB-INF/jsp/login.jsp</result>
 			<result name="loginSuccess" type="redirectAction">index</result>
 		</action>
-		<action name="checkImgCode" class="checkImgAction">
+		<action name="checkImgCode" class="checkImgAction"/>
 			
+		<action name="product_*" class="productAction" method="{1}">
+			<result name="findByCidSuccess">/WEB-INF/jsp/list.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -13,14 +13,6 @@
     		<property name="pdesc"/>
     		<property name="is_hot"/>
     		<property name="pdate"/>
+    		<many-to-one name="categorySecond" class="com.rainhowchan.shop.categorysecond.CategorySecond" column="csid"/>
     	</class>
     </hibernate-mapping>
-
-    
-   <!--  	private Integer pid;
-	private String pname;
-	private Double market_price;
-	private String image;
-	private String pdesc;
-	private Integer is_hot;
-	private Date pdate; -->

@@ -54,7 +54,8 @@
 			<list>
 				<value>com/rainhowchan/shop/user/User.hbm.xml</value>
 				<value>com/rainhowchan/shop/category/Category.hbm.xml</value>
-				<value>com/rainhowchan/shop/product/Product.hbm..xml</value>
+				<value>com/rainhowchan/shop/categorysecond/CategorySecond.hbm.xml</value>
+				<value>com/rainhowchan/shop/product/Product.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -75,6 +76,10 @@
 	<bean id="userAction" class="com.rainhowchan.shop.user.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<bean id="productAction" class="com.rainhowchan.shop.product.ProductAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"/>
+		<property name="productService" ref="productService"/>
+	</bean>
 	
 	
 	<bean id="userService" class="com.rainhowchan.shop.user.UserService">
@@ -86,7 +91,7 @@
 	<bean id="productService" class="com.rainhowchan.shop.product.ProductService">
 		<property name="productDao" ref="productDao"></property>
 	</bean>
-	
+
 	
 	<bean id="userDao" class="com.rainhowchan.shop.user.UserDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>

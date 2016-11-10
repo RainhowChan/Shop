@@ -7,7 +7,7 @@
 					</li>
 					<s:iterator value="#session.categories" var="category">
 						<li>
-							<a href="./蔬菜分类.htm"><s:property value="#category.cname"/></a>
+							<a href="${pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#category.cid"/>&page=1"><s:property value="#category.cname"/></a>
 							|
 						</li>
 					</s:iterator>
