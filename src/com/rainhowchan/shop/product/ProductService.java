@@ -40,5 +40,10 @@ public class ProductService {
 		pageBean.setList(products);
 		return pageBean;
 	}
+
+	public Product findByPid(Integer pid) {
+		
+		return productDao.findByPid(pid);
+	}
 	
 }

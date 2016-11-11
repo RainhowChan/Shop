@@ -22,6 +22,7 @@
 			
 		<action name="product_*" class="productAction" method="{1}">
 			<result name="findByCidSuccess">/WEB-INF/jsp/list.jsp</result>
+			<result name="findByPidSuccess"></result>
 		</action>
 	</package>
 </struts>

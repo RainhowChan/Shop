@@ -36,6 +36,10 @@ public class ProductDao extends HibernateDaoSupport{
 			System.out.println(products.get(0).toString());
 		return products;
 	}
+
+	public Product findByPid(Integer pid) {
+		return getHibernateTemplate().get(Product.class, pid);
+	}
 	
 	
 }

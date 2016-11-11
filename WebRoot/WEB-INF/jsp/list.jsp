@@ -58,17 +58,17 @@
 			<form id="productForm"
 				action="${pageContext.request.contextPath}/image/蔬菜 - Powered By Mango Team.htm"
 				method="get">
-				<input type="hidden" id="brandId" name="brandId" value=""> <input
-					type="hidden" id="promotionId" name="promotionId" value="">
-						<input type="hidden" id="orderType" name="orderType" value="">
-							<input type="hidden" id="pageNumber" name="pageNumber" value="1">
-								<input type="hidden" id="pageSize" name="pageSize" value="20">
+				<input type="hidden" id="brandId" name="brandId" value=""/> <input
+					type="hidden" id="promotionId" name="promotionId" value=""/>
+						<input type="hidden" id="orderType" name="orderType" value=""/>
+							<input type="hidden" id="pageNumber" name="pageNumber" value="1"/>
+								<input type="hidden" id="pageSize" name="pageSize" value="20"/>
 
 									<div id="result" class="result table clearfix">
 										<ul>
 										<s:iterator value="pageBean.list" var="p">
 										<li>
-											<a href="./京华亿家分页面.htm"> 
+											<a href="${pageContext.request.contextPath}/product_findByPid.action?pid=<s:property value="#p.pid"/>"> 
 												<img src="${pageContext.request.contextPath}/<s:property value="#p.image"/>"
 													width="170" height="170" style="display: inline-block;"/>
 												<span style='color:green'><s:property value="#p.pname"/> </span> <span class="price">亿家价： ￥<s:property value="#p.market_price"/>/份 </span>
@@ -80,11 +80,19 @@
 										</ul>
 									</div>
 									<div class="pagination">
-										<span class="firstPage">&nbsp;</span> <span
-											class="previousPage">&nbsp;</span> <span class="currentPage">1</span>
-										<a href="javascript: $.pageSkip(2);">2</a> <a class="nextPage"
-											href="javascript: $.pageSkip(2);">&nbsp;</a> <a
-											class="lastPage" href="javascript: $.pageSkip(2);">&nbsp;</a>
+										第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页
+										<s:if test="pageBean.page!=1">
+											<a href="${pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=1" class='firstPage'>&nbsp;</a> 
+											<a href="${pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class='firstPage'>&nbsp;</a> 
+										</s:if>
+										<s:iterator var="i" begin="1" end="pageBean.totalPage" step="1">
+											<s:if test="pageBean.page==#i">
+												<span class="currentPage"><s:property value="#i"/></span>
+											</s:if>
+											<s:else>
+												<a href="${pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+											</s:else>
+										</s:iterator>
 									</div>
 			</form>
 		</div>
