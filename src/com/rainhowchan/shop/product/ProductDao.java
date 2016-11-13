@@ -23,7 +23,7 @@ public class ProductDao extends HibernateDaoSupport{
 		return getHibernateTemplate().executeFind(new PageHibernateCallback<Product>("from Product order by pdate desc", 0, 10, null));
 	}
 //p CategorySecond cs where p.categorySecond=cs and cs.category.cid=?
-	public Integer findCount(Integer cid) {
+	public Integer findCountByCid(Integer cid) {
 		List<Long> list = getHibernateTemplate().find("select count(*) from Product p , CategorySecond cs where p.categorySecond = cs and cs.category.cid = ?",cid);
 		return list.get(0).intValue();
 	}
@@ -32,13 +32,21 @@ public class ProductDao extends HibernateDaoSupport{
 //		String hql="from Product p,CategorySecond cs where p.categorySecond =cs and cs.category.cid=?";
 		String hql="select p from Product p join p.categorySecond cs join cs.category c where c.cid=?";
 		List<Product> products = getHibernateTemplate().executeFind(new PageHibernateCallback<Product>(hql, begin, limit, cid));
-		if(products.size()>0)
-			System.out.println(products.get(0).toString());
 		return products;
 	}
 
 	public Product findByPid(Integer pid) {
 		return getHibernateTemplate().get(Product.class, pid);
+	}
+
+	public Integer findCountByCsid(Integer csid) {
+		List<Long> list=getHibernateTemplate().find("select count(*) from Product p join p.categorySecond cs where cs.csid=?",csid);
+		return list.get(0).intValue();
+	}
+
+	public List<Product> findByPageCsid(Integer csid, int begin, int limit) {
+		List<Product> products = getHibernateTemplate().executeFind(new PageHibernateCallback<Product>("select p from Product p join p.categorySecond cs where cs.csid=?", begin, limit, csid));
+		return products;
 	}
 	
 	

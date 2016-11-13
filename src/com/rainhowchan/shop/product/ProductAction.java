@@ -11,6 +11,7 @@ import com.rainhowchan.shop.utils.PageBean;
 
 public class ProductAction extends ActionSupport implements ModelDriven<Product>{
 	private Integer cid;
+	private Integer csid;
 	private Integer page;
 	private ProductService productService;
 	private CategoryService categoryService;
@@ -26,6 +27,10 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		this.categoryService = categoryService;
 	}
 
+	public void setCsid(Integer csid) {
+		this.csid = csid;
+	}
+
 	public void setPage(Integer page) {
 		this.page = page;
 	}
@@ -33,6 +38,11 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
+	
+	public Integer getCsid() {
+		return csid;
+	}
+
 	public Integer getCid() {
 		return cid;
 	}
@@ -53,13 +63,20 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		return "findByCidSuccess";
 	}
 	
+	public String findByCsid(){
+		List<Category> categories = categoryService.findAll();
+		ActionContext.getContext().getValueStack().set("categories", categories);
+		pageBean=productService.findByCsid(csid,page);
+		return "findByCsidSuccess";
+	}
+	
+	
 	public String findByPid(){
 		
 		List<Category> categories = categoryService.findAll();
 		ActionContext.getContext().getValueStack().set("categories", categories);
-		System.out.println(product);
+
 		product=productService.findByPid(product.getPid());
-		System.out.println(product);
 		return "findByPidSuccess";
 	}
 

@@ -8,6 +8,7 @@ public class Product {
 	private Integer pid;
 	private String pname;
 	private Double market_price;
+	private Double shop_price;
 	private String image;
 	private String pdesc;
 	private Integer is_hot;
@@ -60,6 +61,14 @@ public class Product {
 	}
 	public void setCategorySecond(CategorySecond categorySecond) {
 		this.categorySecond = categorySecond;
+	}
+	
+	
+	public Double getShop_price() {
+		return shop_price;
+	}
+	public void setShop_price(Double shop_price) {
+		this.shop_price = shop_price;
 	}
 	@Override
 	public String toString() {

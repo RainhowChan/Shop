@@ -9,6 +9,7 @@
     		</id>
     		<property name="pname"/>
     		<property name="market_price"/>
+    		<property name="shop_price"/>
     		<property name="image"/>
     		<property name="pdesc"/>
     		<property name="is_hot"/>

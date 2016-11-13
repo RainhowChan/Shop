@@ -28,7 +28,7 @@ public class ProductService {
 		PageBean<Product> pageBean = new PageBean<Product>();
 		pageBean.setPage(page);
 		pageBean.setLimit(limit);
-		Integer totalCount=productDao.findCount(cid);
+		Integer totalCount=productDao.findCountByCid(cid);
 		pageBean.setTotalCount(totalCount);
 		if(totalCount%limit==0)
 			totalPage=totalCount/limit;
@@ -44,6 +44,25 @@ public class ProductService {
 	public Product findByPid(Integer pid) {
 		
 		return productDao.findByPid(pid);
+	}
+
+	public PageBean<Product> findByCsid(Integer csid,Integer page) {
+		int limit=12;
+		int totalPage=0;
+		PageBean<Product> pageBean = new PageBean<Product>();
+		pageBean.setPage(page);
+		pageBean.setLimit(limit);
+		Integer totalCount=productDao.findCountByCsid(csid);
+		pageBean.setTotalCount(totalCount);
+		if(totalCount%limit==0)
+			totalPage=totalCount/limit;
+		else
+			totalPage=totalCount/limit+1;
+		pageBean.setTotalPage(totalPage);
+		int begin=(page-1)*limit;
+		List<Product> products=productDao.findByPageCsid(csid,begin,limit);
+		pageBean.setList(products);
+		return pageBean;
 	}
 	
 }

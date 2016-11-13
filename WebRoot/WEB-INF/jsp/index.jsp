@@ -52,9 +52,9 @@
 			<img src="${pageContext.request.contextPath}/image/a.jpg" width="260" height="343" alt="热门商品" title="热门商品">
 </div> -->
 						<ul class="tabContent" style="display: block;">
-									<s:iterator value="hotProducts">
+								<s:iterator value="hotProducts">
 									<li>
-										<a target="_blank"><img src="${pageContext.request.contextPath}/<s:property value="image"/>" style="display: block;"/></a>
+										<a target="_blank" href="${pageContext.request.contextPath }/product_findByPid.action?pid=<s:property value="pid"/>"><img src="${pageContext.request.contextPath}/<s:property value="image"/>" style="display: block;"/></a>
 									</li>
 						 		</s:iterator>
 						</ul>

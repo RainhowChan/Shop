@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.rainhowchan.shop.product.Product;
+import com.rainhowchan.shop.utils.PageBean;
+
 @Transactional
 public class CategoryService {
 	
