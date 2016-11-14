@@ -20,7 +20,8 @@
 <script type="text/javascript" src="./js/common.js"></script>  -->
 </head>
 <body>
-
+	<form action="${pageContext.request.contextPath }/cart_addCart.action" method="post">
+	<input type="hidden" name="pid" value="<s:property value="model.pid"/>"/>
 	<div class="container header">
 		<div class="span5">
 			<div class="logo">
@@ -119,7 +120,7 @@
 				<dl class="quantity">
 					<dt>购买数量:</dt>
 					<dd>
-						<input id="quantity" name="quantity" value="1" maxlength="4"
+						<input id="count" name="count" value="1" maxlength="4"
 							onpaste="return false;" type="text">
 							<div>
 								<span id="increase" class="increase">&nbsp;</span> <span
@@ -129,7 +130,7 @@
 					<dd>件</dd>
 				</dl>
 				<div class="buy">
-					<input id="addCart" class="addCart" value="加入购物车" type="button">
+					<input id="addCart" class="addCart" value="加入购物车" type="submit">
 				</div>
 			</div>
 			<div id="bar" class="bar">
@@ -176,5 +177,6 @@
 			<div class="copyright">Copyright © 2005-2013 Mango商城 版权所有</div>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

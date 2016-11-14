@@ -80,7 +80,9 @@
 		<property name="categoryService" ref="categoryService"/>
 		<property name="productService" ref="productService"/>
 	</bean>
-	
+	<bean id="cartAction" class="com.rainhowchan.shop.cart.CartAction" scope="prototype">
+		<property name="cartService" ref="cartService"/>
+	</bean>
 	
 	<bean id="userService" class="com.rainhowchan.shop.user.UserService">
 		<property name="userDao" ref="userDao"></property>
@@ -90,6 +92,9 @@
 	</bean>
 	<bean id="productService" class="com.rainhowchan.shop.product.ProductService">
 		<property name="productDao" ref="productDao"></property>
+	</bean>
+	<bean id="cartService" class="">
+	
 	</bean>
 
 	
